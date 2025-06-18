@@ -1,0 +1,119 @@
+// console.log(a)
+// var a = 10; 
+// console.log(a);
+
+// console.log(b);
+// let b = 20;  
+
+// sayHi();
+// function sayHi(){
+//     console.log('Hi, from script.js');
+// }
+
+// greet(); 
+// var greet = function() {
+//     console.log('Hello, from script.js');
+// }
+// greet(); 
+
+// Named Function Example
+// const greet = function sayHi() {
+//     console.log('Hi!');
+// }
+// greet(); 
+// sayHi(); 
+
+// Arrow Function Example
+// const greet = () => {
+//     console.log('Hello, from script.js');
+// };
+// greet();
+
+
+// function a(){
+//     let x = 10;
+//     function b(){
+//         let y = 20;
+//         console.log(x + y);
+//     }
+//     b();
+// }
+// a();
+
+
+// Closure Example
+// function add(){
+//     let count = 0;
+//     function increment(){
+//         count++;
+//         console.log(count);
+//     }
+//     return increment;
+// }
+// const counter = add();
+// counter(); // print 1
+// counter(); // print 2
+// counter(); // print 3
+
+
+// SetTimeOut and SetInterval Example
+
+// const interval = setInterval(() => {
+//     console.log('Ticking...');
+// }, 1000);
+
+// setTimeout(() => {
+//     clearInterval(interval);
+//     console.log('Stopped');
+// }, 5000);
+
+
+// Callback Example
+// function greet(name, callback){
+//     console.log("Hi, "+ name + "!");
+//     callback();
+// }
+// function Bye(){
+//     console.log("Goodbye!");
+// }
+// greet("Kohinoor", Bye);
+
+// Event Listener Example
+document.getElementById('greetBtn').addEventListener('click', function() {
+    alert('Hello, from scipt.js');
+});
+
+// function handle() {
+//     alert('Hello, from script.js');
+// }
+// document.getElementById('greetBtn').addEventListener('click', handle);
+
+// const btn = document.getElementById('greetBtn');
+// btn.addEventListener("mouseenter", () => console.log('Mouse detected!'));
+// btn.addEventListener("mouseleave", () => console.log('Mouse left!'));
+
+//For Loop Example
+// for(let i=0; i<5; i++){
+//     console.log(i);
+// }
+
+// for(var i=0; i<5; i++){
+//     function logIndex(i) {
+//         setTimeout(() => {
+//             console.log(i);
+//         }, 1000 * i);
+//     }
+//     logIndex(i);
+// }                                    
+
+// for(var i=0; i<5; i++){
+//     setTimeout(() => {
+//         console.log(i);
+//     }, 1000 * i);
+// }                                   
+
+// for(let i=0; i<5; i++){
+//     setTimeout(() => {
+//         console.log(i);
+//     }, 1000 * i);
+// }                                    
