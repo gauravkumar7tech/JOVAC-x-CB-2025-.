@@ -1,0 +1,82 @@
+// // higher order function
+// const data  = [2,5,3,6]
+
+// const calculate = function(data){
+//   let output = [];
+//   for(let i  =0; i<data.length; i++){
+//     output.push(data[i] *data[i]);
+//   }
+//   return output;
+// }
+
+// console.log(calculate(data));
+// higher orser function
+//const data  = [2,5,3,6]
+
+// const calculate = function(data){
+//   let output = [];
+//   for(let i  =0; i<data.length; i++){
+//     output.push(data[i]*data[i]);
+//     output.push(data[i]/2);
+//   }
+//   return output;
+// }
+
+// console.log(calculate(data));
+
+// const data  = [2,5,3,6]
+// const doubledata = function(data){
+//   return data*data;
+  
+// const datah = function(data){
+//   return data/2;
+// }
+  
+// }
+// const calculate  = function(data , logic){
+//   let output  = [];
+//   for(let i  =0; i< data.length; i++){
+//     output.push(logic(data[i]));
+//   }
+//   return output;
+// }
+// console.log(calculate(data, doubledata,));
+// const arr = [5,1,4,6];
+
+// triple the value in a array
+// function triple(x){
+//   return x*3;
+// }
+
+// double the value in array
+// function double(x){
+//   return x*2;
+// }
+// const output = arr.map(double);
+// console.log(output);
+// const output1 = arr.map(triple);
+// console.log(output1);
+
+// function double(x){
+//   return x*2;
+
+// Array.prototype.calculate = function(logic){
+//   const output = []
+//   for(let i  =0; i<this.length; i++ ){
+//     output.push(logic(this[i]));
+//   }
+//   return output;
+// }
+// const  arr = [1,2,3,4];
+// const output1 = arr.calculate(double);
+// console.log(output1);
+
+// filter higher order function 9
+// const arr = [2,3,4,5,6,7,8];
+// function isodd(x){
+//   return x%2;
+// }
+// const output = arr.filter(isodd);
+// console.log(output);
+
+
