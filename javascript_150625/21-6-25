@@ -1,0 +1,195 @@
+// reduce in javascript 
+// const arr = [5,1,2,7,4]
+// let ans  = 0;
+// for(let  i = 0; i< arr.length; i++){
+//   ans+=arr[i];
+// }
+// console.log(ans);
+
+
+//////////////////////////////////////////////////
+// const user = [
+//   {
+//     fristname : "gaurav",
+//     lastname : "yadav",
+//     age : 18
+//   },
+//   {
+//     fristname : "akash",
+//     lastname : "yadav",
+//     age : 20
+//   },
+//   {
+//     fristname : "abhi",
+//     lastname : "yadav",
+//     age : 15
+    
+//   }
+//   ]
+  // const output  = user.map(user => user.fristname+" "+ user.lastname);
+  // console.log(output[0]);// select the one name
+  // console.log(output); // print the all name 
+
+
+//////////////////////////////////////////////
+   // // calculate the average age
+  // const output2 = user.reduce(function(acc,curr){
+  //   acc  = acc+curr.age;
+  //   return acc
+  // })
+  // console.log(output2)
+  
+  
+  
+  // const output  = user.filter(user => user.age <18).map((name)=> name.fristname);
+  // console.log(output);
+
+/////////////////////////////////////////////////
+  // promises :- are uesd to haddle asyne oprations in js.
+// promises is an object.
+// .than  :- 'then' will attach the function to the promises.
+// .catch :- sorry to say  but i can't come to your home.
+// promises are immutable .
+// promises have three state:- 1. full fill, 2. panding, 3. rejected
+// promises chaining  returns a function .
+
+const cart = ["shose", "watches", "glasses", "shirt"]
+// callback
+createorder(cart, function(orderid){
+    proceadtopyment(orderid, function(pymentinfo){
+        showsummary(pymentinfo,function(){
+            updatewa
+        })
+    })
+})
+
+/////////////////////////////////////////////////
+// promise.all 
+
+// const p1 = new Promise(function(resolve, reject){
+//     setTimeout(() =>{
+//         resolve("p1 resolve");
+//     }, 3000)
+// })
+// const p2 = new Promise(function(resolve, reject){
+//     setTimeout(() =>{
+//         resolve("p2 success");
+//     }, 2000)
+// })
+// const p3 = new Promise(function(resolve, reject){
+//     setTimeout(() =>{
+//         resolve("p3 success");
+//     }, 1000)
+// })
+// Promise.all([p1,p2,p3])
+// .then((res)=>{
+//     console.log(res);
+// })
+// .catch((err) =>{
+//     console.log(err);
+// })
+
+//////////////////////////////////////////////////
+// // promise.allsettled 
+
+// const p1 = new Promise(function(resolve, reject){
+//     setTimeout(() =>{
+//         resolve("p1 resolve");
+//     }, 3000)
+// })
+// const p2 = new Promise(function(resolve, reject){
+//     setTimeout(() =>{
+//         resolve("p2 success");
+//     }, 2000)
+// })
+// const p3 = new Promise(function(resolve, reject){
+//     setTimeout(() =>{
+//         resolve("p3 success");
+//     }, 1000)
+// })
+// Promise.allSettled([p1,p2,p3])
+// .then((res)=>{
+//     console.log(res);
+// })
+// .catch((err) =>{
+//     console.log(err);
+// })
+
+
+///////////////////////////////////////////////////////
+// allsettled all rejected
+
+// const p1 = new Promise(function(resolve, reject){
+//     setTimeout(() =>{
+//         reject("p1 rejected");
+//     }, 3000)
+// })
+// const p2 = new Promise(function(resolve, reject){
+//     setTimeout(() =>{
+//         reject("p2 success");
+//     }, 2000)
+// })
+// const p3 = new Promise(function(resolve, reject){
+//     setTimeout(() =>{
+//         reject("p3 success");
+//     }, 1000)
+// })
+// Promise.allSettled([p1,p2,p3])
+// .then((res)=>{
+//     console.log(res);
+// })
+// .catch((err) =>{
+//     console.log(err);
+// })
+
+////////////////////////////////////////////
+//promise.race 
+
+// const p1 = new Promise(function(resolve, reject){
+//     setTimeout(() =>{
+//         reject("p1 rejected");
+//     }, 3000)
+// })
+// const p2 = new Promise(function(resolve, reject){
+//     setTimeout(() =>{
+//         resolve("p2 success");
+//     }, 2000)
+// })
+// const p3 = new Promise(function(resolve, reject){
+//     setTimeout(() =>{
+//         resolve("p3 success");
+//     }, 1000)
+// })
+// Promise.race([p1,p2,p3])
+// .then((res)=>{
+//     console.log(res);
+// })
+// .catch((err) =>{
+//     console.log(err);
+// })
+
+//////////////////////////////////////////////////
+// promise.any()
+
+// const p1 = new Promise(function(resolve, reject){
+//     setTimeout(() =>{
+//         reject("p1 success");
+//     }, 3000)
+// })
+// const p2 = new Promise(function(resolve, reject){
+//     setTimeout(() =>{
+//         resolve("p2 success");
+//     }, 2000)
+// })
+// const p3 = new Promise(function(resolve, reject){
+//     setTimeout(() =>{
+//         resolve("p3 success");
+//     }, 1000)
+// })
+// Promise.any([p1,p2,p3])
+// .then((res)=>{
+//     console.log(res);
+// })
+// .catch((err) =>{
+//     console.log(err);
+// })
