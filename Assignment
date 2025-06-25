@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Package Delivery Event Flow</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+
+    .warehouse, .hub, .customer {
+      border: 2px solid #444;
+      padding: 25px;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    .warehouse {
+      background-color: #ffe0e0;
+    }
+
+    .hub {
+      background-color: #fff3b0;
+    }
+
+    .customer {
+      background-color: #d4fcd4;
+    }
+
+    .label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="warehouse">
+    <span class="label">Warehouse</span>
+    <div class="hub">
+      <span class="label">Hub</span>
+      <div class="customer">
+        <span class="label">Customer</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Select the DOM elements
+    const warehouse = document.querySelector('.warehouse');
+    const hub = document.querySelector('.hub');
+    const customer = document.querySelector('.customer');
+
+    // --- Capturing Phase Events (from top to target) ---
+    warehouse.addEventListener('click', () => {
+      console.log(' [Capturing] Package dispatched from Warehouse');
+    }, true); // true means capturing phase
+
+    hub.addEventListener('click', () => {
+      console.log(' [Capturing] Package arrived at Hub');
+    }, true);
+
+    customer.addEventListener('click', () => {
+      console.log(' [Capturing] Package is near Customer');
+    }, true);
+
+    // --- Bubbling Phase Events (from target back to top) ---
+    customer.addEventListener('click', () => {
+      console.log(' [Bubbling] Package delivered to Customer');
+    });
+
+    hub.addEventListener('click', () => {
+      console.log(' [Bubbling] Hub marked delivery as complete');
+    });
+
+    warehouse.addEventListener('click', () => {
+      console.log(' [Bubbling] Warehouse updated delivery status');
+    });
+
+    // --- Stop further event propagation at Customer ---
+    customer.addEventListener('click', (e) => {
+      console.log(' Stopped event at Customer (No bubble/capture beyond)');
+      e.stopPropagation();
+    });
+  </script>
+
+</body>
+</html>
