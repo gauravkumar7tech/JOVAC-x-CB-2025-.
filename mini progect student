@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GitHub User Info with Promises</title>
+  <style>
+    body
+    font-family: Arial;
+      max-width: 600px;
+      margin: 30px auto;
+      text-align: center;
+    }
+    input {
+      padding: 8px;
+      margin: 5px;
+      width: 80%;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+    }
+    img {
+      border-radius: 50%;
+      width: 100px;
+      margin-top: 20px;
+    }
+    #result {
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      padding-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Student</h2>
+
+  <!-- Student Details Inputs -->
+  <input id="name" placeholder="Your Name" required /><br>
+  <input id="roll" placeholder="Roll No." required /><br>
+  <input id="email" placeholder="Email" required /><br>
+  <input id="codeurl" placeholder="GitHub Code URL" required /><br>
+
+  <!-- GitHub Username to fetch -->
+  <input id="user" placeholder="GitHub Username to Fetch" required /><br>
+
+  <!-- Button to trigger fetch -->
+  <button onclick="getUser()">Fetch GitHub Info</button>
+
+  <!-- Area to display result -->
+  <div id="result"></div>
+
+  <script>
+    // Function that returns a Promise to fetch GitHub user data
+    function fetchGitHubUser(username) {
+      return new Promise((resolve, reject) => {
+        //GitHub API
+        fetch(`https://api.github.com/users/${username}`)
+          .then(response => {
+            if (!response.ok) {
+              reject("GitHub user not found.");
+            }
+            return response.json();
+          })
+          .then(data => {
+            resolve(data);
+          })
+          .catch(err => {
+            reject("Failed to fetch GitHub data.");
+          });
+      });
+    }
+
+    // Main function that collects input and calls the fetch promise
+    function getUser() {
+      // Collect student input values
+      const name = document.getElementById('name').value;
+      const roll = document.getElementById('roll').value;
+      const email = document.getElementById('email').value;
+      const codeurl = document.getElementById('codeurl').value;
+      const username = document.getElementById('user').value;
+      const result = document.getElementById('result');
+
+      // Validate all fields are filled
+      if (!name || !roll || !email || !codeurl || !username) {
+        alert("Please fill all fields!");
+        return;
+      }
+
+      // Call the promise-based function
+      fetchGitHubUser(username)
+        .then(data => {
+          result.innerHTML = `
+            <h3>Student Info</h3>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Roll No:</strong> ${roll}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>GitHub Code URL:</strong> <a href="${codeurl}" target="_blank">${codeurl}</a></p>
+            <hr>
+            <h3>GitHub User Info</h3>
+            <img src="${data.avatar_url}" alt="avatar" />
+            <p><strong>Username:</strong> ${data.login}</p>
+            <p><strong>Name:</strong> ${data.name || 'N/A'}</p>
+            <p><strong>Public Repos:</strong> ${data.public_repos}</p>
+            <p><strong>Location:</strong> ${data.location || 'N/A'}</p>
+            <a href="${data.html_url}" target="_blank">Visit GitHub Profile</a>
+          `;
+        })
+        .catch(error => {
+          // Show error if promise fails
+          result.innerHTML = `<p style="color:red;">${error}</p>`;
+        });
+    }
+  </script>
+
+</body>
+</html>
